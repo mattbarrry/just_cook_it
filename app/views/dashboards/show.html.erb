@@ -1,1 +1,26 @@
-<p>Hello</p>
+<div class="columns is-vcentered">
+  <div class="column is-5">
+    <figure class="image is-4by3">
+      <%= image_tag 'splash-cooking.jpg' %>
+    </figure>
+  </div>
+  <div class="column is-6 is-offset-1">
+    <h1 class="title is-2">
+      Get the recipe
+    </h1>
+    <h2 class="subtitle is-4">
+      And only the recipe, none of the fluff
+    </h2>
+    <br>
+    <p class="has-text-centered">
+      <%= form_with url: '/' do |form| %>
+        <div class="field">
+          <%= form.label :recipie_url, 'Recipe URL', class: 'label' %>
+          <div class="control">
+            <%= form.text_field :recipe_url, class: 'input', placeholder: 'Paste a recipe url...' %>
+          </div>
+        </div>
+      <% end %>
+    </p>
+  </div>
+</div>
