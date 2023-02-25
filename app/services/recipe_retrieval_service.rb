@@ -16,20 +16,19 @@ class RecipeRetrievalService
 
   private
 
-  # rubocop:disable Lint/UnreachableLoop
   def recipe_node
     ld_json_nodes.each do |node|
       node = node[0] if node.instance_of?(Array)
-      if node.keys.include?('@type') && node['@type'].to_s =~ /recipe/i
+
+      if recipe_node_type?(node)
         return node
-      elsif node.keys.include?('@graph')
+      elsif graph_node_type?(node)
         return node['@graph'].select { |n| n['@type'] =~ /recipe/i }
-      else
-        return 'No recipe found'
       end
     end
+
+    'No recipe found'
   end
-  # rubocop:enable Lint/UnreachableLoop
 
   def ld_json_nodes
     matching_nodes = Nokogiri::XML(source).xpath(RECIPE_NODE_XPATH)
@@ -37,5 +36,13 @@ class RecipeRetrievalService
     matching_nodes.each { |node| parsed_nodes << JSON.parse(node.inner_text) }
 
     parsed_nodes
+  end
+
+  def recipe_node_type?(node)
+    node.keys.include?('@type') && node['@type'].to_s =~ /recipe/i ? true : false
+  end
+
+  def graph_node_type?(node)
+    node.keys.include?('@graph')
   end
 end
