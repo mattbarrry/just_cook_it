@@ -1,27 +1,17 @@
-class RecipeRetriever
+class RecipeRetrievalService
+  RECIPE_NODE_XPATH = '//script[@type="application/ld+json"]'
+
   attr_reader :url, :source, :recipe
   def initialize(url)
     @url = url
-    
+
     uri = URI(url)
 
     @source = Net::HTTP.get(uri)
-    @recipe = recipe_node
+    @recipe = recipe_node.class == Array ? recipe_node.first : recipe_node
   end
 
-  def author
-    recipe["author"]["name"]
-  end
-
-  def ingredients
-    recipe["recipeIngredient"]
-  end
-
-  def instructions
-    recipe["recipeInstructions"]
-  end
-
-  # private
+  private
 
   def recipe_node
     ld_json_nodes.each do |node|
@@ -37,13 +27,10 @@ class RecipeRetriever
   end
 
   def ld_json_nodes
-    matching_nodes = Nokogiri::XML(source).xpath('//script[@type="application/ld+json"]')
+    matching_nodes = Nokogiri::XML(source).xpath(RECIPE_NODE_XPATH)
     parsed_nodes = []
     matching_nodes.each { |node| parsed_nodes << JSON.parse(node.inner_text) }
 
     parsed_nodes
   end
 end
-
-# RecipeRetriever.new('https://www.recipetineats.com/vietnamese-pho-recipe/')
-# RecipeRetriever.new('https://theforkedspoon.com/pho-recipe/')

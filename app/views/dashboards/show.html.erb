@@ -13,11 +13,11 @@
     </h2>
     <br>
     <p class="has-text-centered">
-      <%= form_with url: '/' do |form| %>
+      <%= form_with url: recipes_url, method: :get do |form| %>
         <div class="field">
-          <%= form.label :recipie_url, 'Recipe URL', class: 'label' %>
+          <%= form.label :url, 'Recipe URL', class: 'label' %>
           <div class="control">
-            <%= form.text_field :recipe_url, class: 'input', placeholder: 'Paste a recipe url...' %>
+            <%= form.text_field :url, class: 'input', placeholder: 'Paste a recipe url...' %>
           </div>
         </div>
       <% end %>
