@@ -33,9 +33,6 @@ AllCops:
     - 'app/views/**/*'
     - 'db/**/*'
 
-Layout/IndentationConsistency:
-  EnforcedStyle: 'indented_internal_methods'
-
 Layout/LineLength:
   Max: 120
 
@@ -47,6 +44,7 @@ Metrics/BlockLength:
   Exclude:
     - 'Guardfile'
     - 'config/environments/*'
+    - 'spec/**/*'
 
 Metrics/ModuleLength:
   Max: 150

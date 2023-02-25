@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   resource :recipes, only: [:show]
 
-  if Rails.env.development?
-    mount Lookbook::Engine, at: "/lookbook"
-  end
+  # Lookbook for later
+  mount Lookbook::Engine, at: '/lookbook' if Rails.env.development?
 end
