@@ -1,3 +1,27 @@
-<div class="container">
-  <%= @recipe.recipe %>
+<div class="columns">
+  <div class="column is-two-fifths">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-title">
+          Ingredients
+        </div>
+      </div>
+      <div class="card-content">
+        <%= render Recipes::Ingredient.with_collection(@recipe.recipe["recipeIngredient"]) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-three-fifths">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-title">
+          Steps
+        </div>
+      </div>
+      <div class="card-content">
+        <%= render Recipes::Step.with_collection(@recipe.recipe["recipeInstructions"]) %>
+      </div>
+    </div>
+  </div>
 </div>

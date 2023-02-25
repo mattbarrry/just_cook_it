@@ -39,6 +39,10 @@ Layout/IndentationConsistency:
 Layout/LineLength:
   Max: 120
 
+Lint/MissingSuper:
+  Exclude:
+    - 'app/components/**/*'
+
 Metrics/BlockLength:
   Exclude:
     - 'Guardfile'

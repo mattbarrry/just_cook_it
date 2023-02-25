@@ -1,0 +1,7 @@
+<li>
+  <% if @step.keys.include? 'itemListElement' %>
+    <%= render Recipes::Step.with_collection(@step["itemListElement"]) %>
+  <% else %>
+    <%= @step["text"] %>
+  <% end %>
+</li>

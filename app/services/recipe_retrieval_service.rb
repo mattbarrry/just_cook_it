@@ -2,6 +2,7 @@ class RecipeRetrievalService
   RECIPE_NODE_XPATH = '//script[@type="application/ld+json"]'
 
   attr_reader :url, :source, :recipe
+
   def initialize(url)
     @url = url
 
