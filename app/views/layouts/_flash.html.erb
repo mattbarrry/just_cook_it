@@ -1,0 +1,10 @@
+<div class="columns">
+  <div class="column is-2 is-offset-10 mb-2">
+    <% flash.each do |_type, msg| %>
+      <div class="notification is-primary">
+        <button class="delete" data-controller="flash"></button>
+        <%= msg %>
+      </div>
+    <% end %>
+  </div>
+</div>
