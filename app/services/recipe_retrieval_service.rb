@@ -31,8 +31,10 @@ class RecipeRetrievalService
   end
 
   def ld_json_nodes
-    matching_nodes = Nokogiri::XML(source).xpath(RECIPE_NODE_XPATH)
+    doc = Nokogiri::HTML(source)
+    matching_nodes = doc.xpath(RECIPE_NODE_XPATH)
     parsed_nodes = []
+
     matching_nodes.each { |node| parsed_nodes << JSON.parse(node.inner_text) }
 
     parsed_nodes
