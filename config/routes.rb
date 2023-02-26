@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'dashboards#show'
 
   resource :recipes, only: [:show]
+  resource :login, only: %i[new create]
 
   # Lookbook for later
   mount Lookbook::Engine, at: '/lookbook' if Rails.env.development?
