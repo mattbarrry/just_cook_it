@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'dashboards#show'
 
+  # Resourceful routes
   resource :recipes, only: [:show]
+  resource :login, only: %i[new create]
+
+  # Named routes
+  get '/logout', to: 'logins#destroy'
 
   # Lookbook for later
   mount Lookbook::Engine, at: '/lookbook' if Rails.env.development?

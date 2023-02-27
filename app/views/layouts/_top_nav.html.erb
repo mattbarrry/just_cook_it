@@ -1,27 +1,19 @@
 <div class="hero-head">
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/">
-          <%= image_tag 'logo-no-background.png' %>
-        </a>
-        <span class="navbar-burger burger" data-target="navbarMenu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </div>
-      <div id="navbarMenu" class="navbar-menu">
-        <div class="navbar-end">
-          <div class="tabs is-right">
-            <ul>
-              <li class="is-active"><a>Home</a></li>
-              <li><a href="">Saved Recipes</a></li>
-              <li><a href="">My Account</a></li>
-              <li><a href="">Help</a></li>
-            </ul>
-          </div>
-        </div>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <%= brand_logo_link %>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+         data-target="topNavMenu" data-controller="navbar-hamburger">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="topNavMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <%= top_nav_right_buttons %>
       </div>
     </div>
   </nav>
