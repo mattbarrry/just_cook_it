@@ -77,4 +77,5 @@ group :test do
   gem 'webdrivers'
   gem 'webmock'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'rspec-html-matchers'
 end
