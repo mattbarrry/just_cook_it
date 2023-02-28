@@ -2,12 +2,12 @@
 
 class AuthController < ApplicationController
   def omniauth
-    user = User.from_omniauth(request.env['omniauth.auth'])
+    user = OmniauthUserService.new(request.env['omniauth.auth']).find_user
     if user.valid?
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to root_path, notice: 'Logged in successfully.'
     else
-      redirect_to new_login_path
+      redirect_to new_login_path, alert: 'Issue logging in.'
     end
   end
 end
