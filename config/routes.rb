@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # Named routes
   get '/logout', to: 'logins#destroy'
+  get '/auth/:provider/callback', to: 'auth#omniauth'
 
   # Lookbook for later
   mount Lookbook::Engine, at: '/lookbook' if Rails.env.development?
