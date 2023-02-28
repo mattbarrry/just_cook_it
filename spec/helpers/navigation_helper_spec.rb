@@ -30,7 +30,7 @@ RSpec.describe NavigationHelper, type: :helper do
     context 'when there is no logged in user' do
       it 'shows login and signup buttons' do
         expect(subject).to have_tag(:a, text: 'Sign up')
-        expect(subject).to have_tag(:a, text: 'Log in', with: { href: login_path })
+        expect(subject).to have_tag(:a, text: 'Log in', with: { href: new_login_path })
       end
     end
   end
