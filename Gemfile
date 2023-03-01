@@ -63,6 +63,8 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails', '~> 6.0.0'
   gem 'rubocop-rails', '~> 2.17'
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'faker', '~> 3.1'
 end
 
 group :development do
@@ -79,9 +81,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-  gem 'webmock'
-  gem 'shoulda-matchers', '~> 5.0'
   gem 'rspec-html-matchers'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'webmock'
 end
