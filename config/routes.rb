@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # Resourceful routes
   resource :recipes, only: [:show]
   resource :login, only: %i[new create]
+  resource :privacy_policy, only: [:show]
 
   # Named routes
   get '/logout', to: 'logins#destroy'
