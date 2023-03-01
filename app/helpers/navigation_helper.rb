@@ -17,7 +17,7 @@ module NavigationHelper
     content_tag :div, class: 'navbar-item' do
       content_tag :div, class: 'buttons' do
         (link_to 'Sign up', root_path, class: 'button is-primary') +
-          (link_to 'Log in', login_path, class: 'button is-light')
+          (link_to 'Log in', new_login_path, class: 'button is-light')
       end
     end
   end

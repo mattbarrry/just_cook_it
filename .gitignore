@@ -32,3 +32,6 @@
 
 # RubyMine files
 .idea/
+
+# Certs
+/config/certs
