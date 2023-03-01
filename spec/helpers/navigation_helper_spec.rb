@@ -17,7 +17,7 @@ RSpec.describe NavigationHelper, type: :helper do
     subject { helper.top_nav_right_buttons }
 
     context 'when there is a logged in user' do
-      let(:current_user) { OpenStruct.new foo: :bar }
+      let(:current_user) { FactoryBot.create :user }
       before :each do
         instance_variable_set(:@current_user, current_user)
       end
