@@ -42,7 +42,7 @@ class RecipeParseService
   private
 
   def parse_url(original_url)
-    URI.parse(original_url)
+    uri = URI.parse(original_url)
     "#{uri.scheme}://#{uri.host}#{uri.path}"
   end
 end
