@@ -2,6 +2,8 @@
 
 module Recipes
   class Step < ViewComponent::Base
+    include RecipeHelper
+
     def initialize(step:)
       @step = step
     end
