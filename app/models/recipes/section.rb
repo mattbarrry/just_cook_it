@@ -7,5 +7,6 @@ module Recipes
     validates :name, presence: true
 
     belongs_to :recipe
+    has_many :recipes_steps, class_name: 'Recipes::Step', dependent: :destroy
   end
 end
