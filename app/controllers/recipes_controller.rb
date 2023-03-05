@@ -2,7 +2,8 @@
 
 class RecipesController < ApplicationController
   def show
-    @recipe = RecipeRetrievalService.new(params[:url])
+    recipe_object = RecipeRetrievalService.new(params[:url])
+    @recipe = RecipeParseService.new(recipe_object.recipe, params[:url])
 
     respond_to do |format|
       format.html

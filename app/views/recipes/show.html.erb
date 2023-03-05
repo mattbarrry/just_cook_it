@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="card-content">
-        <%= render Recipes::Ingredient.with_collection(@recipe.recipe["recipeIngredient"]) %>
+        <%= render Recipes::Ingredient.with_collection(@recipe.ingredients) %>
       </div>
     </div>
   </div>
@@ -16,11 +16,22 @@
     <div class="card">
       <div class="card-header">
         <div class="card-header-title">
-          Steps
+          Instructions
         </div>
       </div>
       <div class="card-content">
-        <%= render Recipes::Step.with_collection(@recipe.recipe["recipeInstructions"]) %>
+        <%#= render Recipes::Step.with_collection(@recipe.steps) %>
+        <% if @recipe.step_sections? %>
+          <% @recipe.sections.each do |section| %>
+            <%= render Recipes::Section.new(section: section) do |sec| %>
+              <% section['itemListElement'].each do |step| %>
+                <%= sec.with_step(step: step) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <!-- only step stuff -->
+        <% end %>
       </div>
     </div>
   </div>
