@@ -20,7 +20,6 @@
         </div>
       </div>
       <div class="card-content">
-        <%#= render Recipes::Step.with_collection(@recipe.steps) %>
         <% if @recipe.step_sections? %>
           <% @recipe.sections.each do |section| %>
             <%= render Recipes::Section.new(section: section) do |sec| %>
@@ -30,7 +29,9 @@
             <% end %>
           <% end %>
         <% else %>
-          <!-- only step stuff -->
+          <% @recipe.steps.each do |step| %>
+            <%= render Recipes::Step.new(step: step) %>
+          <% end %>
         <% end %>
       </div>
     </div>
