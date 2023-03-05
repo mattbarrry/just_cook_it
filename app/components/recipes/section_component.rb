@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Recipes
-  class Section < ViewComponent::Base
-    renders_many :steps, Recipes::Step
+  class SectionComponent < ViewComponent::Base
+    renders_many :steps, Recipes::StepComponent
     def initialize(section:)
       @section = section
     end
