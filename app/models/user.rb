@@ -5,4 +5,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: { case_sensitive: false }, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   has_secure_password
+
+  has_many :recipes
 end
