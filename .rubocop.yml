@@ -33,6 +33,9 @@ AllCops:
     - 'app/views/**/*'
     - 'db/**/*'
 
+Bundler/OrderedGems:
+  Enabled: false
+
 Layout/LineLength:
   Max: 120
 
@@ -54,6 +57,12 @@ Naming/FileName:
     - 'Gemfile'
     - 'Guardfile'
     - 'Rakefile'
+
+Rails/DynamicFindBy:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
 
 Rails/I18nLocaleTexts:
   Enabled: false

@@ -22,6 +22,7 @@ module NavigationHelper
     end
   end
 
+  # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
   def account_dropdown
     content_tag :div, class: 'navbar-item has-dropdown is-hoverable is-right' do
       (link_to 'Account', root_path, class: 'navbar-link') +
@@ -35,4 +36,5 @@ module NavigationHelper
         end)
     end
   end
+  # rubocop:enable Metrics/MethodLength,Metrics/AbcSize
 end

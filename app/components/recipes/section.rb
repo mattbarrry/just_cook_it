@@ -2,7 +2,6 @@
 
 module Recipes
   class Section < ViewComponent::Base
-
     renders_many :steps, Recipes::Step
     def initialize(section:)
       @section = section

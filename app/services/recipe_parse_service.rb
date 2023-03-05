@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class RecipeParseService
-
   attr_reader :recipe, :url
 
   def initialize(recipe, original_url)
