@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def login_required
-    redirect_to new_login_path unless @current_user.present?
+    redirect_to new_login_path if @current_user.blank?
   end
 
   private

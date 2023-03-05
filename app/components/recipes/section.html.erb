@@ -1,0 +1,13 @@
+<div class="card mt-3">
+  <div class="card-header">
+    <div class="card-header-title">
+      <%= @section['name'] %>
+    </div>
+  </div>
+
+  <div class="card-content">
+    <% steps.each do |step| %>
+      <%= step %>
+    <% end %>
+  </div>
+</div>
