@@ -2,6 +2,8 @@
 
 module Recipes
   class Ingredient < ViewComponent::Base
+    include RecipeHelper
+
     with_collection_parameter :ingredient
 
     def initialize(ingredient:)
