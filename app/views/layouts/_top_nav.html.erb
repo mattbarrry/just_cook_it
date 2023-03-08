@@ -13,6 +13,16 @@
 
     <div id="topNavMenu" class="navbar-menu">
       <div class="navbar-end">
+        <%= form_with url: recipe_retrievals_url, method: :get, data: { controller: 'search',
+                                                                        search_target: 'form',
+                                                                        turbo_frame: 'global-search-frame' } do |form| %>
+          <div class="field">
+            <div class="control">
+              <%= form.text_field :url, class: 'input', placeholder: 'Paste a recipe url...',
+                                  data: { search_target: 'text', action: 'search#textSearch'} %>
+            </div>
+          </div>
+        <% end %>
         <%= top_nav_right_buttons %>
       </div>
     </div>

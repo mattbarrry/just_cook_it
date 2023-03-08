@@ -1,39 +1,41 @@
-<div class="columns">
-  <div class="column is-two-fifths">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-title">
-          Ingredients
+<turbo-frame id='global-search-frame'>
+  <div class="columns">
+    <div class="column is-two-fifths">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-title">
+            Ingredients
+          </div>
         </div>
-      </div>
-      <div class="card-content">
-        <%= render Recipes::Ingredient.with_collection(@recipe.ingredients) %>
+        <div class="card-content">
+          <%= render Recipes::Ingredient.with_collection(@recipe.ingredients) %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="column is-three-fifths">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-header-title">
-          Instructions
+    <div class="column is-three-fifths">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-title">
+            Instructions
+          </div>
         </div>
-      </div>
-      <div class="card-content">
-        <% if @recipe.step_sections? %>
-          <% @recipe.sections.each do |section| %>
-            <%= render Recipes::Section.new(section: section) do |sec| %>
-              <% section['itemListElement'].each do |step| %>
-                <%= sec.with_step(step: step) %>
+        <div class="card-content">
+          <% if @recipe.step_sections? %>
+            <% @recipe.sections.each do |section| %>
+              <%= render Recipes::Section.new(section: section) do |sec| %>
+                <% section['itemListElement'].each do |step| %>
+                  <%= sec.with_step(step: step) %>
+                <% end %>
               <% end %>
             <% end %>
+          <% else %>
+            <% @recipe.steps.each do |step| %>
+              <%= render Recipes::Step.new(step: step) %>
+            <% end %>
           <% end %>
-        <% else %>
-          <% @recipe.steps.each do |step| %>
-            <%= render Recipes::Step.new(step: step) %>
-          <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</turbo-frame>

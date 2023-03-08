@@ -15,7 +15,9 @@
       <%= render 'layouts/top_nav' %>
       <div class="hero-body is-align-items-stretch">
         <div class="container">
-          <%= yield %>
+          <turbo-frame id='global-search-frame'>
+            <%= yield %>
+          </turbo-frame>
         </div>
       </div>
       <%= render 'layouts/footer' %>
