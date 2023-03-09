@@ -1,8 +1,33 @@
 @import "bulma";
 
+// Navigation
 .navbar-search {
   width: 50rem;
   & div.field {
     width: 50rem;
   }
+}
+
+// Spinning loader
+.bulma-loader-mixin {
+  @include loader;
+  border-left-color: $primary;
+  border-bottom-color: $primary;
+  width: 5rem;
+  height: 5rem;
+  display: none;
+}
+
+.fixed-center-block {
+  margin: auto;
+  position: absolute;
+  inset: 0 0 0 0;
+}
+
+turbo-frame[busy] {
+  opacity: 20%;
+}
+
+turbo-frame[busy] ~ .bulma-loader-mixin {
+  display: inline-block;
 }
