@@ -1,1 +1,8 @@
 @import "bulma";
+
+.navbar-search {
+  width: 50rem;
+  & div.field {
+    width: 50rem;
+  }
+}
