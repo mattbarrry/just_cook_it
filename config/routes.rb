@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'dashboards#show'
 
   # Resourceful routes
-  resource :recipes, only: [:show]
+  resource :recipe_retrievals, only: [:show]
   resource :login, only: %i[new create]
   resource :privacy_policy, only: [:show]
 

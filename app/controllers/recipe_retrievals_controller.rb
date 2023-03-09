@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RecipesController < ApplicationController
+class RecipeRetrievalsController < ApplicationController
   def show
     recipe_object = RecipeRetrievalService.new(params[:url])
     @recipe = RecipeParseService.new(recipe_object.recipe, params[:url])
